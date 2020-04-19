@@ -1,0 +1,23 @@
+<%- include('../partials/header'); %>
+
+
+
+<div class="container">
+
+    <h1>Welcome to the show page.</h1>
+    
+    <div class="thumbnail">
+        <img style="max-height: 500px; max-width: 500px;" src="<%=products.image%>">,
+        
+        <h3> <%=products.name%> </h3>
+
+        <h4> <%=products.description%> </h4>
+
+        <p></p>
+        <a class="btn btn-primary" href="/products" role="button">Back to products.</a> 
+
+    </div>
+</div><!--Container div-->
+
+<%- include('../partials/footer'); %>
+

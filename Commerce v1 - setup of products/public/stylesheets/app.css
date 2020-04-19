@@ -1,0 +1,49 @@
+h1{
+    color: rgb(253, 31, 31);
+}
+
+.navbar{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+ul{
+    font-weight: 900;
+    font-size: large;
+    list-style-type: none;
+}
+
+img{
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.container{
+    text-align: center;
+    justify-items: center;
+}
+
+.prods{
+    text-align: center;
+    display: inline;
+}
+
+.btn{
+    margin: 10px;
+}
+
+h2{
+    margin: 25px;
+}
+
+h4{
+    color: darkgoldenrod;
+}
+
+h3{
+    color: deeppink;
+}
+
+body{
+    background-color: lightskyblue;
+}

@@ -1,0 +1,56 @@
+<%- include('./partials/header'); %>
+
+
+<div class="container">
+
+	<h1 class="carth1">This is your shopping cart page</h1>
+	<h4>Note: The cart will be active for a period of 30 minutes before it will clear automatically.</h4>
+	<p></p>
+	<ul class="disp">
+
+
+		<!-- <li>   
+			<div>
+				<%   if (session.cart && session.cart.item) { %>
+				</i><h3>Cart Items</h3><span class="badge"><h3><%= session.cart.item %></h3></span></a>
+				<% } %>
+			</div>
+			</li> -->
+
+	
+	 <li>   
+	<div>
+		<%   if (session.cart && session.cart.totalItems) { %>
+		</i><h3>Cart Items</h3><span class="badge"><h3><%= session.cart.totalItems %></h3></span></a>
+		<% } %>
+	</div>
+	</li>
+	
+	<li>
+	<div>
+		<%   if (session.cart && session.cart.totalPrice) { %>
+		</i><h3>Cart total Price</h3><span class="badge"><h2>R <%= session.cart.totalPrice %></h2></span></a>
+		<% } %>
+	</div>
+	</li>
+	
+	</ul>
+	
+	
+
+	<p></p>
+	<div class="button">
+	<a class="btn btn-primary btn-info" href="/index" role="button">Checkout</a>
+	</div>
+	
+	<p></p>
+	<div class="button">
+	<a class="btn btn-primary btn-info" href="/products" role="button">Back to products</a>
+	</div>
+	
+	
+	
+	</div><!--Container div-->
+
+
+<%- include('./partials/footer'); %>

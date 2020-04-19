@@ -1,0 +1,93 @@
+<%- include('../partials/header'); %>
+
+<div class="container">
+
+  
+  <h3>You are logged in as: <%=currentUser && currentUser.username%></h3>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <a class="navbar-brand" href="#">Commerce</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="#">Cart</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                User Management
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%if(!currentUser){%>
+                <a class="dropdown-item" href="/register">Register</a>
+                <a class="dropdown-item" href="/login">Login</a>
+                <%}else{%>
+                <a class="dropdown-item" href="/logout">Logout</a>
+              <%}%>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container">
+        <!-- Flash -->
+        <% if(success & success.length > 0){ %>
+      <div class="alert alert-success" role="alert">
+        <%=success%>
+      </div>
+        <% }; %>
+        
+  
+        <% if(error && error.length > 0){ %>
+      <div class="alert alert-danger" role="alert">
+      <%=error%>
+      </div>
+        <%};%>
+
+     </div>
+
+<h1>Welcome to the Index page.</h1>
+
+
+
+<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+    <% products.forEach(function(products){ %>
+        <div class="col-md-6 col-sm-12 col-lg-4">
+            <div class="thumbnail">
+               <img src="<%= products.image %>">
+               <div class="caption">
+                   <h4><%= products.name %></h4>
+                   <h4>R <%=products.price%><span><h6>incl.</h6></span></h4>
+                   <!-- <h5><%= products.description %></h5> -->
+                   <p></p>
+                   <%=products.description.substring(0,100)%> ...
+                    </p>
+               </div>
+               <p>
+                   <a href="/products/<%=products._id%>" class="btn btn-primary">Read more</a>
+                   <% if(currentUser && currentUser.isAdmin){ %>
+                    <a href="/products/<%=products._id%>/edit" class="btn btn-primary">Edit</a>
+                   <%}%>
+                   
+                   <a href="/" class="btn btn-primary">Home</a>
+                   <a href="#" class="btn btn-primary">Add to cart</a>
+                   <form id="delete-form" action="/products/<%= products._id %>?_method=DELETE" method="POST">
+                    <% if(currentUser && currentUser.isAdmin){%>
+                      <button class="btn btn-xs btn-danger">Delete this product????</button>
+                    <%}%>
+                    
+                    </form>
+               </p>
+            </div>
+        </div>
+    <% }); %>
+</div>
+   
+</div><!--Container div-->
+
+<%- include('../partials/footer'); %>
