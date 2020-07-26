@@ -76,7 +76,7 @@
                    
                    <a href="/" class="btn btn-primary">Home</a>
                    <a href="/addtocart/<%=products._id %>" class="btn btn-primary">Add to cart</a>
-                   <form id="delete-form" action="/addtocart/<%= products._id %>?_method=DELETE" method="POST">
+                   <form id="delete-form" action="/products/<%= products._id %>?_method=DELETE" method="POST">
                     <% if(currentUser && currentUser.isAdmin){%>
                       <button class="btn btn-xs btn-danger">Delete this product????</button>
                     <%}%>

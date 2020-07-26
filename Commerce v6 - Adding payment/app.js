@@ -16,7 +16,7 @@ var express     = require('express'),
     MongoStore = require('connect-mongo')(session),
     cookieParser = require('cookie-parser'),
     methodOverride = require('method-override');
-    var paypal = require('paypal-rest-sdk');
+    paypal = require('paypal-rest-sdk');
 
 
 
